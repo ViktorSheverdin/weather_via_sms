@@ -33,6 +33,7 @@ def bring_umbrella_check():
 
 def send_text():
     if bring_umbrella_check():
+        print("Sending SMS")
         client = Client(credentials.twilo_account_sid,
                         credentials.twilo_auth_token)
 
@@ -41,8 +42,9 @@ def send_text():
             from_=credentials.twilo_phone_num,
             to=credentials.my_phone_num
         )
-
         print(message.sid)
+    else:
+        print("Umbrella is not needed")
         # print("Bring Umbrella")
 
 
